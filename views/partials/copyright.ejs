@@ -1,0 +1,10 @@
+<section class="copyright-section">
+    <i class="fa fa-copyright"></i>
+    2019<span id="copyright-date"></span> Davit Grigoryan. All Rights Reserved.
+</section>
+
+<script type="text/javascript">
+    const d = new Date;
+    const y = d.getFullYear();
+    document.getElementById("copyright-date").innerHTML = y === 2019 ? `` : `-${y}`;
+</script>
