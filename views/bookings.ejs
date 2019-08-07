@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <% include partials/header.ejs %>
+        <% include partials/angularFiles.ejs %>
+        <script src="/assets/js/calendar.js" charset="utf-8"></script>
+    </head>
+    <body>
+
+        <!-- BOOKINGS SECTION -->
+
+        <section class="section section-bookings">
+            <div class="container centered">
+            <center>
+                <section class="section-title">
+                    <!-- BOOK ICON W/ TITLE -->
+                    <h4>
+                        <span><% include icons/book.ejs %><b><%= title %></b></span>
+                    </h4>
+                </section>
+
+                <!-- CALENDAR -->
+                <span>Select Date</span>
+                <div class="calendar" ng-controller="AppController as appCtrl" ng-cloak class="datepickerDemo" ng-app="MyApp">
+                    <md-content>
+                        <ng-form name="myForm">
+                            <md-datepicker name="dateField"
+                                         ng-model="appCtrl.myDate"
+                                         md-placeholder="Enter date"
+                                         required
+                                         md-min-date="appCtrl.minDate"
+                                         md-max-date="appCtrl.maxDate">
+                            </md-datepicker>
+
+                            <div class="validation-messages" ng-messages="myForm.dateField.$error">
+                                <div ng-message="valid">The entered value is not a date!</div>
+                                <div ng-message="required">This date is required!</div>
+                                <div ng-message="mindate">Date is too early!</div>
+                                <div ng-message="maxdate">Date is too late!</div>
+                                <div ng-message="filtered">Only weekends are allowed!</div>
+                            </div>
+                        </ng-form>
+                    </md-content>
+                </div>
+
+                <br>
+
+                <!-- GRADE -->
+                <span>Select Grade</span>
+                <br>
+                <select class="grade-option">
+                    <option value="">12th</option>
+                </select>
+
+                <br>
+
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" class="button-primary">look up for tests</button>
+
+                <!-- ADD A TEST LINK 4 TEACHERS -->
+                <br>
+                <a href="#" id="add-test-link">book a test</a>
+
+            </center>
+            </div>
+        </section>
+
+        <!-- COPYRIGHT SECTION -->
+        <% include partials/copyright.ejs %>
+
+    </body>
+</html>
