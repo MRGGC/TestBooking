@@ -1,18 +1,65 @@
+html, body {
+    height: 100%;
+    background: #fb7385; /* For older browsers that may not support gradients */
+    background-image: linear-gradient(to right, #fb7385, #fe9f57);
+    background-image: -webkit-linear-gradient(to right, #fb7385, #fe9f57);
+}
+
 .centered {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
 }
+
+/* button.button-primary {
+    background-color: #59dd87;
+    border: none;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+} */
 
 .section-title svg {
     vertical-align: middle;
+    animation-name: float;
+    animation-duration: 2.2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-10px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+.section-bookings .container {
+    background-color: rgb(250, 250, 250);
+    max-width: 35rem;
+    padding: .8rem;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
 }
 
 .section-bookings button {
     font-size: 1.2rem;
     width: 24rem;
+}
+
+.section-bookings button:hover {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+}
+
+.section-bookings button[type=submit]:hover {
+    /* box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19); */
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+
 }
 
 .datepickerDemo .validation-messages {
@@ -40,16 +87,18 @@
 }
 
 .copyright-section {
-    width: 90%;
+    width: 95%;
 
     position:absolute;
     left:50%;
     bottom:0;
     transform:translate(-50%,0%);
     -ms-transform:translate(-50%,0%);
+    -webkit-transform:translate(-50%,0%);
 
     text-align: center;
     font-size: 1.2rem;
-    color: rgb(134, 142, 150);
-    padding: .8rem;
+    /* color: rgb(134, 142, 150); */
+    color: #fff;
+    padding: .6rem;
 }
