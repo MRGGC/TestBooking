@@ -1,6 +1,5 @@
 DROP PROCEDURE IF EXISTS `testLookup`;
 
-DELIMITER $$
 CREATE PROCEDURE `testLookup`
 (
     test_date DATE,
@@ -14,4 +13,3 @@ BEGIN
           tests.subject_id = subjects.subject_id AND
           tests.teacher = teachers.username;
 END;
-$$

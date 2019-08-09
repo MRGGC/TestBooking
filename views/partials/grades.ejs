@@ -1,0 +1,5 @@
+<select class="grade-option">
+    <% for (let i = 12; i > 0; i--) { %>
+        <option value=<%= i %>><%= i + (i > 3 ? 'th' : (i === 1 ? 'st' : (i === 2 ? 'nd' : 'rd'))) %></option>
+    <% } %>
+</select>

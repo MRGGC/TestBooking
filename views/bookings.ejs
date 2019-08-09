@@ -4,13 +4,27 @@
         <% include partials/header.ejs %>
         <% include partials/angularFiles.ejs %>
         <script src="/assets/js/calendar.js" charset="utf-8"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+        <script type="text/javascript">
+            // Connection / Joining to the socket server
+            const serverHostname = window.location.protocol + "//" + window.location.hostname + ":" + location.port;
+            const socket = io.connect(serverHostname, {secure: true});
+
+            // Declaring costants from config
+            const popupSpeed        = <%= popupSpeed %>;
+            const prepareMaxLength  = <%= prepareMaxLength %>;
+            const noTestMsg         = "<%= noTestMsg %>";
+        </script>
+        <script src="/assets/js/popup.js" charset="utf-8"></script>
+        <script src="/assets/js/testLookup.js" charset="utf-8"></script>
     </head>
     <body>
 
         <!-- BOOKINGS SECTION -->
 
         <section class="section section-bookings">
-            <div class="container centered">
+            <div class="container centered box">
             <center>
                 <section class="section-title">
                     <!-- BOOK ICON W/ TITLE -->
@@ -21,41 +35,19 @@
 
                 <!-- CALENDAR -->
                 <span>Select Date</span>
-                <div class="calendar" ng-controller="AppController as appCtrl" ng-cloak class="datepickerDemo" ng-app="MyApp">
-                    <md-content>
-                        <ng-form name="myForm">
-                            <md-datepicker name="dateField"
-                                         ng-model="appCtrl.myDate"
-                                         md-placeholder="Enter date"
-                                         required
-                                         md-min-date="appCtrl.minDate"
-                                         md-max-date="appCtrl.maxDate">
-                            </md-datepicker>
-
-                            <div class="validation-messages" ng-messages="myForm.dateField.$error">
-                                <div ng-message="valid">The entered value is not a date!</div>
-                                <div ng-message="required">This date is required!</div>
-                                <div ng-message="mindate">Date is too early!</div>
-                                <div ng-message="maxdate">Date is too late!</div>
-                                <div ng-message="filtered">Only weekends are allowed!</div>
-                            </div>
-                        </ng-form>
-                    </md-content>
-                </div>
+                <% include partials/calendar.ejs %>
 
                 <br>
 
                 <!-- GRADE -->
                 <span>Select Grade</span>
                 <br>
-                <select class="grade-option">
-                    <option value="">12th</option>
-                </select>
+                <% include partials/grades.ejs %>
 
-                <br>
+                <br><br>
 
                 <!-- SUBMIT BUTTON -->
-                <button type="submit" class="button-primary">look up for tests</button>
+                <button type="submit" class="btnLookup button-primary">look up for tests</button>
 
                 <!-- ADD A TEST LINK 4 TEACHERS -->
                 <br>
@@ -64,6 +56,16 @@
             </center>
             </div>
         </section>
+
+        <div class="overlay">
+            <div class="container centered popup box">
+                <a class="close" href="#" onclick="closePopupWin()">&times;</a>
+
+                <ul class="tests-list">
+
+                </ul>
+            </div>
+        </div>
 
         <!-- COPYRIGHT SECTION -->
         <% include partials/copyright.ejs %>
