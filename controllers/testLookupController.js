@@ -1,4 +1,4 @@
-module.exports = (socket, connection) => {
+module.exports = (socket, connection, utf8) => {
 
     socket.on('getTests', info => {
 
@@ -17,7 +17,23 @@ module.exports = (socket, connection) => {
             if (err)
                 return err;
 
-            socket.emit('recieveTests', res);
+            const tests = res[0];
+
+            // Sending Prepare txt as char codes
+            for (let test of tests) {
+                const code = [];
+
+                for (let c of test.prepare) {
+                    code.push(c.charCodeAt());
+                }
+
+                console.log(code);
+
+                test.prepare = code;
+            }
+
+            socket.emit('recieveTests', tests);
+
         });
 
     });

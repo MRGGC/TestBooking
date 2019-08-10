@@ -21,23 +21,39 @@ $(document).ready(function() {
 
     });
 
+    const charCodes2String = code => {
+        let r = '';
+
+        for (let c of code) {
+            r += String.fromCharCode(c);
+        }
+
+        return r;
+    };
+
     const formatHTML = (info, i) => {
         const types = {
             'Q': 'Quiz',
             'T': 'Test',
             'B': 'Quiz & Test'
-        }
+        };
 
         const heading = `<li><span class="test-heading">${info.subject}</span></li>`;
         const type = `<li>${types[info.type]}</li>`;
 
         const maxLen = prepareMaxLength;
 
-        const main = info.prepare.substr(0, maxLen);
+        let prepare = '';
+
+        for (let c of info.prepare) {
+            prepare += String.fromCharCode(c);
+        }
+
+        const main = prepare.substr(0, maxLen);
         let left;
 
-        if (info.prepare.length > maxLen) {
-            const other = info.prepare.substr(maxLen, info.prepare.length);
+        if (prepare.length > maxLen) {
+            const other = prepare.substr(maxLen, prepare.length);
             left =
             `<li>
                 ${main}<span class="dots" id="dots${i}">...</span><span class="more" id="more${i}">${other}<br><i>–${info.teacher}</i></span>
@@ -55,14 +71,12 @@ $(document).ready(function() {
         const ls = $('.tests-list');
         ls.html('');
 
-        if (tests[0].length) {
-
+        if (tests.length) {
+            for (let i in tests) {
+                ls.append(formatHTML(tests[+i], +i))
+            }
         } else {
             ls.append(`<h3>${noTestMsg}</h3>`);
-        }
-
-        for (let i in tests[0]) {
-            ls.append(formatHTML(tests[0][+i], +i))
         }
 
         openPopupWin();
