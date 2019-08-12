@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <% include partials/header.ejs %>
+        <link rel="stylesheet" href="/assets/css/error.css">
+        <link rel="stylesheet" href="/assets/css/glitch.css">
+    </head>
+    <body>
+
+        <section class="section section-error404">
+            <div class="container box centered">
+                <section class="section-title">
+                    <h1 class="cc404">404</h1>
+                    <p class="error">page not found</p>
+                </section>
+                <div class="error-ghost-main">
+                    <% include icons/pacman_ghost.ejs %>
+                </div>
+                <div class="error-ghost">
+                    <% include icons/pacman_ghost.ejs %>
+                    <% include icons/pacman_ghost.ejs %>
+                    <% include icons/pacman_ghost.ejs %>
+                </div>
+                <br>
+                <center>
+                    <a href="/" id="link-home">Test Booking</a>
+                </center>
+            </div>
+        </section>
+
+        <!-- COPYRIGHT SECTION -->
+        <% include partials/copyright.ejs %>
+    </body>
+</html>

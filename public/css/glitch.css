@@ -1,0 +1,116 @@
+@keyframes error-ghost-anim-1 {
+  0% {
+    clip: rect(115px, 200px, 242px, 0);
+  }
+  6.66667% {
+    clip: rect(72px, 200px, 260px, 0);
+  }
+  13.33333% {
+    clip: rect(49px, 200px, 15px, 0);
+  }
+  20% {
+    clip: rect(226px, 200px, 216px, 0);
+  }
+  26.66667% {
+    clip: rect(54px, 200px, 31px, 0);
+  }
+  33.33333% {
+    clip: rect(38px, 200px, 30px, 0);
+  }
+  40% {
+    clip: rect(118px, 200px, 85px, 0);
+  }
+  46.66667% {
+    clip: rect(206px, 200px, 229px, 0);
+  }
+  53.33333% {
+    clip: rect(167px, 200px, 66px, 0);
+  }
+  60% {
+    clip: rect(45px, 200px, 117px, 0);
+  }
+  66.66667% {
+    clip: rect(41px, 200px, 163px, 0);
+  }
+  73.33333% {
+    clip: rect(15px, 200px, 122px, 0);
+  }
+  80% {
+    clip: rect(185px, 200px, 232px, 0);
+  }
+  86.66667% {
+    clip: rect(10px, 200px, 238px, 0);
+  }
+  93.33333% {
+    clip: rect(126px, 200px, 39px, 0);
+  }
+  100% {
+    clip: rect(105px, 200px, 204px, 0);
+  }
+}
+@keyframes error-ghost-anim-2 {
+  0% {
+    clip: rect(91px, 200px, 166px, 0);
+  }
+  6.66667% {
+    clip: rect(65px, 200px, 221px, 0);
+  }
+  13.33333% {
+    clip: rect(104px, 200px, 42px, 0);
+  }
+  20% {
+    clip: rect(227px, 200px, 222px, 0);
+  }
+  26.66667% {
+    clip: rect(130px, 200px, 36px, 0);
+  }
+  33.33333% {
+    clip: rect(141px, 200px, 22px, 0);
+  }
+  40% {
+    clip: rect(232px, 200px, 109px, 0);
+  }
+  46.66667% {
+    clip: rect(27px, 200px, 161px, 0);
+  }
+  53.33333% {
+    clip: rect(114px, 200px, 71px, 0);
+  }
+  60% {
+    clip: rect(145px, 200px, 37px, 0);
+  }
+  66.66667% {
+    clip: rect(204px, 200px, 51px, 0);
+  }
+  73.33333% {
+    clip: rect(262px, 200px, 160px, 0);
+  }
+  80% {
+    clip: rect(111px, 200px, 137px, 0);
+  }
+  86.66667% {
+    clip: rect(94px, 200px, 191px, 0);
+  }
+  93.33333% {
+    clip: rect(245px, 200px, 104px, 0);
+  }
+  100% {
+    clip: rect(40px, 200px, 135px, 0);
+  }
+}
+.error-ghost > img {
+  position: absolute;
+  top: 200px;
+  left: 75px;
+}
+.error-ghost > img:nth-child(2), .error-ghost > img:nth-child(3) {
+  clip: rect(0, 0, 0, 0);
+}
+.error-ghost > img:nth-child(2) {
+  left: 77px;
+  animation: error-ghost-anim-1 2s infinite linear alternate-reverse;
+}
+.error-ghost > img:nth-child(3) {
+  left: 73px;
+  animation: error-ghost-anim-2 3s infinite linear alternate-reverse;
+}

@@ -1,0 +1,54 @@
+@import "compass/css3";
+
+.section-error404 {
+}
+
+.cc404 {
+    font: 100% 'lato', sans-serif;
+    font-size: 9rem;
+    font-weight: 600;
+    margin: 0 0 2% 0;
+    letter-spacing: .5rem;
+    color: rgb(70, 70, 70);
+    text-shadow: 1px 2px 3px rgba(0,0,0,0.57);
+}
+
+.error {
+    margin-top: -1ex;
+	font-size: 2.5rem;
+    /* text-shadow: 1px 2px 3px rgba(0,0,0,0.57); */
+	font-weight: 100;
+}
+
+.error-ghost, .error-ghost-main {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.error-ghost-main img {
+    width: 200px;
+    opacity: 0;
+}
+
+.error-ghost img {
+    width: 200px;
+    opacity: 0.9;
+    -webkit-animation: float-ghost 2s ease-in-out infinite;
+}
+
+@keyframes float-ghost {
+    0%{-webkit-transform: translate(0px);}
+    50%{-webkit-transform: translateY(16px);}
+    100%{-webkit-transform: translate(0px);}
+}
+
+#link-home {
+    /* text-decoration: none; */
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #333;
+}
+
+#link-home:hover {
+    color: #22bbeb;
+}
