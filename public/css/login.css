@@ -1,0 +1,13 @@
+/* .section-title b {
+    font-size: 4rem;
+    letter-spacing: .1rem;
+} */
+
+.login-form {
+    margin: auto;
+}
+
+.err-msg {
+    color: red;
+    font-weight: 600;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <% include partials/header.ejs %>
+        <link rel="stylesheet" href="/assets/css/login.css">
+    </head>
+    <body>
+
+        <section class="section section-login">
+            <div class="container box centered">
+                <section class="section-title">
+                    <!-- BOOK ICON W/ TITLE -->
+                    <h4>
+                        <span><% include icons/book.ejs %><b><%= title %></b></span>
+                    </h4>
+                </section>
+
+                <form class="login-form container" action="/login" method="POST">
+                    <label for="uname">Username</label>
+                    <input type="text" name="uname" class="u-full-width" placeholder="petros_petrosyan">
+
+                    <label for="pass">Password</label>
+                    <input type="password" name="pass" class="u-full-width" placeholder="password">
+
+                    <label class="rememberCheckbox">
+                        <input type="checkbox" name="remember">
+                        <span class="label-body">Remember me</span>
+                    </label>
+
+                    <button type="submit" class="button-primary u-full-width">Login</button>
+
+                    <span class="err-msg"><%= err %></span>
+                </form>
+            </div>
+        </section>
+
+        <!-- COPYRIGHT SECTION -->
+        <% include partials/copyright.ejs %>
+    </body>
+</html>
