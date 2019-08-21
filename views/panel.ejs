@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <% include partials/header.ejs %>
+        <link rel="stylesheet" href="/assets/css/panel.css">
+        <script src="/assets/js/panelTabs.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <section class="section section-dashboard">
+            <div class="container centered">
+                <div class="row">
+                    <div class="two columns dashboard box">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <i class="fa" onclick="openTab(0)"><% include icons/book-bw.ejs %></i>
+                                    <p>book</p>
+                                </li>
+                                <li>
+                                    <i class="fa" onclick="openTab(1)"><% include icons/edit-property.ejs %></i>
+                                    <p>bookings</p>
+                                </li>
+                                <li>
+                                    <i class="fa" onclick="openTab(2)"><% include icons/settings.ejs %></i>
+                                    <p>settings</p>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="ten columns panel box">
+                        <section class="section section-book tab" id="tab0">
+                            <% include partials/tabs/bookTab.ejs %>
+                        </section>
+                        <section class="section section-teacher-bookings tab" id="tab1">
+                            <% include partials/tabs/bookingsTab.ejs %>
+                        </section>
+                        <section class="section section-settings tab" id="tab2">
+                            <% include partials/tabs/settings.ejs %>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
