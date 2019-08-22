@@ -1,10 +1,43 @@
-<form action="" method="POST">
+<form action="/book" method="POST">
     <h5 class="section-heading">Book a Test</h5>
-    <label for="date">Select Date</label>
-    <% include ../calendar.ejs %>
+    <div class="row">
+        <div class="six columns">
+            <label for="date">Select Date</label>
+            <% include ../calendar.ejs %>
+        </div>
+        <div class="six columns">
+            <label for="grade">Select Grade</label>
+            <select name="grade" class="u-full-width">
+                <% for (let g of grades) { %>
+                    <option value="<%= g %>"><%= g %></option>
+                <% } %>
+            </select>
+        </div>
+    </div>
     <br>
-    <label for="grade">Select Grade</label>
-    <select name="grade">
-        
-    </select>
+    <div class="row">
+        <div class="six columns">
+            <label for="subject">Select Subject</label>
+            <select name="subject" class="u-full-width">
+                <% for (let s of subjects) { %>
+                    <option value="<%= s.subject_id %>"><%= s.subject_name %></option>
+                <% } %>
+            </select>
+        </div>
+        <div class="six columns">
+            <label for="type">Select Type</label>
+            <select name="type" class="u-full-width">
+                <option value="Q">Quiz</option>
+                <option value="T">Test</option>
+                <option value="B">Quiz & Test</option>
+            </select>
+        </div>
+    </div>
+
+    <label for="prep">What to Prepare</label>
+    <textarea name="prep" class="u-full-width" maxlength="<%= prepTxtMaxLength %>" required></textarea>
+
+    <button type="submit" class="u-full-width button-primary">Book this Test</button>
+    <span class="err-msg"><%= err %></span>
+
 </form>

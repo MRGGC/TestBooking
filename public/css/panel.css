@@ -106,11 +106,21 @@
 }
 
 .panel {
-
+    max-height: 80vh;
+    overflow-y: scroll;
 }
 
 .panel .tab {
     margin: 1.1rem;
+}
+
+.panel .section-book form label {
+    font-weight: normal;
+}
+
+.panel .section-book .calendar {
+    border-bottom: none;
+    margin-left: -1.5rem;
 }
 
 .section-book {display: block}
@@ -152,6 +162,10 @@
     .dashboard ul li .fa:hover, svg:hover {
         width: 64%;
         height: 64%;
+    }
+
+    .panel {
+        max-height: 60vh;
     }
 
 }
