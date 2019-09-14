@@ -1,0 +1,32 @@
+<center>
+    <h3 class="section-heading">Settings</h3>
+    <hr>
+</center>
+<div class="account">
+    <div class="profile">
+        <p class="section-preheading">Person: <i><%= profile.name %></i></p>
+    </div>
+
+    <div class="change-pass">
+        <form action="/changepass" method="POST">
+            <p class="section-preheading"><%# include ../../icons/key.ejs %> Change Password</p>
+            <label for="current">Current</label>
+            <input type="password" class="u-full-width" name="current_pass" value="">
+            <div class="row">
+                <div class="six columns">
+                    <label for="new">New</label>
+                    <input type="password" class="u-full-width" onpaste="return false;" name="new_pass" value="">
+                </div>
+                <div class="six columns">
+                    <label for="cnew">Re-type new</label>
+                    <input type="password" class="u-full-width" onpaste="return false;" name="cnew_pass" value="">
+                </div>
+            </div>
+
+            <button type="submit" class="u-full-width button-primary" name="button">Change Password</button>
+            <span class="err-msg"><%= err3 %></span>
+        </form>
+    </div>
+    <hr>
+    <a class="logout u-pull-right" href="/logout">Log out</a>
+</div>
