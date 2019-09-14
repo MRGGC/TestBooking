@@ -1,6 +1,5 @@
-@font-face {
-    font-family: "Square";
-    src: url('Square.ttf') format('truetype');
+.section-preheading {
+    font-size: 1.7rem;
 }
 
 .section-dashboard .container {
@@ -118,14 +117,118 @@
     font-weight: normal;
 }
 
-.panel .section-book .calendar {
+.calendar {
     border-bottom: none;
     margin-left: -1.5rem;
 }
 
+
+
 .section-book {display: block}
 .section-teacher-bookings {display: none}
 .section-settings {display: none}
+
+
+/* BOOKINGS TAB */
+
+hr {
+    margin: 1rem 0 1rem;
+}
+
+.bookings-list .booking-block {
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+}
+
+.bookings-list .booking-block:hover {
+    -webkit-box-shadow: 0px 2px 6px 0px rgba(125,125,125,0.7);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(125,125,125,0.7);
+    box-shadow: 0px 2px 3px 0px rgba(125,125,125,0.7);
+}
+
+.bookings-list .booking-block .booking-components div {
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.booking-components .num {
+    width: 6%;
+    background: rgb(44, 64, 100);
+    color: #fff;
+    font-size: 1.3em;
+}
+
+.booking-components .date {
+    width: 26%;
+}
+
+.booking-components .subject {
+    width: 38%;
+}
+
+.booking-components .grade {
+    width: 10%;
+}
+
+.booking-components .edit {
+    width: 10%;
+    background: #3ec4ee;
+    color: #fff;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.booking-components .remove {
+    width: 10%;
+    background: rgb(244, 31, 71);
+    color: #fff;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.bookings-list .names {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding-bottom: .4rem;
+}
+
+.bookings-list .names .num {
+    background: transparent !important;
+    color: #222;
+}
+
+.booking-block .names .empty {
+    width: 20%;
+}
+
+.popup {
+    max-width: 50rem;
+}
+
+label {
+    font-weight: normal;
+    color: #222;
+}
+
+.account .logout {
+    color: rgb(231, 15, 56) !important;
+}
+
+svg.key {
+    position: relative;
+    width: 1.6rem;
+    cursor: auto;
+}
+
+svg.key:hover {
+    width: 1.6rem;
+}
 
 @media screen and (max-width: 549px) {
 
@@ -166,6 +269,44 @@
 
     .panel {
         max-height: 60vh;
+    }
+
+    .booking-components .grade {
+        width: 0%;
+    }
+
+    .booking-components .num {
+        width: 0%;
+    }
+
+    .booking-components .subject {
+        width: 54%;
+    }
+
+    .booking-block .names .grade {
+        visibility: hidden;
+        width: 0%;
+    }
+
+    .booking-block .names .num {
+        visibility: hidden;
+        width: 0%;
+    }
+
+    .booking-block .names .subject {
+        width: 54%;
+    }
+
+}
+
+@media screen and (max-width: 399px) {
+
+    .booking-components .subject {
+        font-size: .85em;
+    }
+
+    .booking-components .date {
+        font-size: .85em;
     }
 
 }

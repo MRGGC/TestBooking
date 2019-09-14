@@ -1,0 +1,40 @@
+<center>
+    <h3 class="section-heading">Your Bookings</h3>
+    <hr>
+</center>
+<div class="bookings-list">
+    <div class="booking-block names">
+        <div class="booking-components names">
+            <div class="num">N
+            </div><div class="date">date
+            </div><div class="subject">subject
+            </div><div class="grade">grade
+            </div><div class="empty">
+            </div>
+        </div>
+    </div>
+
+    <% for (let i in tests) { %>
+        <div class="booking-block">
+            <div class="booking-components">
+                <div class="num"><%= +i+1 %>
+                </div><div class="date"><%= ((m=tests[i].date.getMonth() + 1) > 9 ? m : '0'+m) + '/' + ((d=tests[i].date.getDate()) > 9 ? d : '0'+d) + '/' +  tests[i].date.getFullYear() %>
+                </div><div class="subject">
+                    <% var n = '';
+
+                       for (let s of subjects)
+                            if (s.subject_id == tests[i].subject_id)
+                                n = s.subject_name;
+                     %>
+                     <%= n %>
+                </div><div class="grade"><%= tests[i].grade %>
+                </div><div class="edit" onclick="edit(<%= tests[i].test_id %>)"><i class="fa fa-edit"></i>
+                </div><div class="remove" onclick="remove(<%= tests[i].test_id %>)"><i class="fa fa-remove"></i>
+                </div>
+            </div>
+        </div><br>
+    <% } %>
+
+    <span class="err-msg"><%= err2 %></span>
+    <span class="success-msg"><%= success2 %></span>
+</div>
