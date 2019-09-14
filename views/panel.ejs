@@ -6,10 +6,33 @@
         <script src="/assets/js/calendar.js" charset="utf-8"></script>
         <script src="/assets/js/funcs.js" charset="utf-8"></script>
         <script src="/assets/js/panelTabs.js" charset="utf-8"></script>
+        <script src="/assets/js/bookings.js" charset="utf-8"></script>
+        <script src="/assets/js/popup.js" charset="utf-8"></script>
         <link rel="stylesheet" href="/assets/css/panel.css">
         <link rel="stylesheet" href="/assets/css/login.css">
+
+        <script type="text/javascript">
+            // Tests
+            const tests = [<%- tests.map(test => JSON.stringify(test)) %>];
+
+            // SQL date to MM/DD/YYYY
+            const parseSQLdate = date => {
+                date = new Date(date);
+                const m = ((_m=date.getMonth() + 1) > 9 ? _m : '0'+_m);
+                const d = ((_d=date.getDate()) > 9 ? _d : '0'+_d);
+                const y = date.getFullYear();
+
+                return m + '/' + d + '/' + y;
+            }
+
+            // Declaring costants from config
+            const popupSpeed        = <%= popupSpeed %>;
+            const prepareMaxLength  = <%= prepareMaxLength %>;
+            const noTestMsg         = "<%= noTestMsg %>";
+        </script>
     </head>
     <body>
+    <div ng-controller="AppController as appCtrl" ng-cloak class="datepickerDemo" ng-app="MyApp">
         <section class="section section-dashboard">
             <div class="container centered">
                 <div class="row">
@@ -45,5 +68,15 @@
                 </div>
             </div>
         </section>
+
+        <div class="overlay">
+            <div class="container centered popup box">
+                <a class="close" href="#" onclick="closePopupWin()">&times;</a>
+
+                <% include partials/tabs/bookTab.ejs %>
+
+            </div>
+        </div>
+    </div>
     </body>
 </html>

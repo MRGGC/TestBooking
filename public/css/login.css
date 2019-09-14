@@ -11,3 +11,8 @@
     color: red;
     font-weight: 600;
 }
+
+.success-msg {
+    color: rgb(14, 199, 118);
+    font-weight: 600;
+}

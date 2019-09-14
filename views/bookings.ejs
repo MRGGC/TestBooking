@@ -5,7 +5,7 @@
         <% include partials/angularFiles.ejs %>
         <script src="/assets/js/calendar.js" charset="utf-8"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+        <script src="/assets/lib/socket.io.js"></script>
         <script type="text/javascript">
             // Connection / Joining to the socket server
             const serverHostname = window.location.protocol + "//" + window.location.hostname + ":" + location.port;
@@ -35,7 +35,9 @@
 
                 <!-- CALENDAR -->
                 <span>Select Date</span>
-                <% include partials/calendar.ejs %>
+                <div ng-controller="AppController as appCtrl" ng-cloak class="datepickerDemo" ng-app="MyApp">
+                    <% include partials/calendar.ejs %>
+                </div>
 
                 <br>
 

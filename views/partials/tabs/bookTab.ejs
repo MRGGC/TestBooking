@@ -1,5 +1,8 @@
 <form action="/book" method="POST">
-    <h5 class="section-heading">Book a Test</h5>
+    <center>
+        <h5 class="section-heading">Book a Test</h5>
+        <hr>
+    </center>
     <div class="row">
         <div class="six columns">
             <label for="date">Select Date</label>
@@ -38,6 +41,6 @@
     <textarea name="prep" class="u-full-width" maxlength="<%= prepTxtMaxLength %>" required></textarea>
 
     <button type="submit" class="u-full-width button-primary">Book this Test</button>
-    <span class="err-msg"><%= err %></span>
-
+    <span class="err-msg"><%= err1 %></span>
+    <span class="success-msg"><%= success1 %></span>
 </form>

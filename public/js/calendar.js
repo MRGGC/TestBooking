@@ -19,3 +19,7 @@ angular
     appCtrl.minDate = moment(appCtrl.myDate).subtract(5, 'years').toDate();
     appCtrl.maxDate = moment(appCtrl.myDate).add(5, 'years').toDate();
 });
+
+$(document).on('ready', () => {
+    $('.md-datepicker-input').attr('name', 'date');
+});

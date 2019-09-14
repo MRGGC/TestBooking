@@ -10,7 +10,8 @@ module.exports = {
         title: 'Test Booking',
         prepareMaxLength: 32,
         popupSpeed: 300,
-        noTestMsg: "Yooho! No tests!"
+        noTestMsg: "Yooho! No tests!",
+        prepTxtMaxLength: 512
     },
     keyOption: {
         key: fs.readFileSync(__dirname + '/SSL/server.key'),

@@ -42,12 +42,8 @@ $(document).ready(function() {
         const type = `<li>${types[info.type]}</li>`;
 
         const maxLen = prepareMaxLength;
-
-        let prepare = '';
-
-        for (let c of info.prepare) {
-            prepare += String.fromCharCode(c);
-        }
+        
+        let prepare = decodeURIComponent(info.prepare);
 
         const main = prepare.substr(0, maxLen);
         let left;

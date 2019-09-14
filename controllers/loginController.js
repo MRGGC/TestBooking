@@ -25,7 +25,7 @@ module.exports = (app, urlencodedParser, connection, bcrypt, sha1, config) => {
                     }
 
                     req.session.save(() => {
-                        res.redirect('/book');
+                        res.redirect('/panel');
                     });
                 });
 
