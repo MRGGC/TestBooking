@@ -18,10 +18,10 @@ module.exports = {
         cert: fs.readFileSync(__dirname + '/SSL/server.cert')
     },
     mysql: {
-        database: 'test_booking',
-        user: 'root',
-        password: 'rootGGC_',
-        host: 'localhost',
+        database: process.env.DB_NAME,
+        user: process.env.DB_USERNAME,
+        password: process.env.DB_PASSWORD,
+        host: process.env.DB_HOSTNAME,
         multipleStatements: true
     },
     session: {
