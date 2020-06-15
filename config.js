@@ -3,7 +3,7 @@ const uuid = require('uuid/v4');
 const sha1 = require('sha1');
 
 const random = (min, max) => Math.floor(Math.random(max - min)) + min;
-const randomStr = len => new Array(len).map(e => String.fromCharCode(random(33, 126))).join('');
+const randomStr = len => new Array(len).map(_ => String.fromCharCode(random(33, 126))).join('');
 
 module.exports = {
     client: {

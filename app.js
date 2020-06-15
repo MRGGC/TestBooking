@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const session = require('express-session');
 const https = require('https');
@@ -56,10 +58,24 @@ panelController(app, sha1, funcs, urlencodedParser, bcrypt, connection, config);
 loginController(app, urlencodedParser, connection, bcrypt, sha1, config);
 errorController(app, config);
 
-const server = https.createServer(config.keyOption, app).listen(443, () => {
-                   console.log("Server is running on port 80/443...")
-               });
-httpController(express);
+let server;
+if (process.env.NODE_ENV === 'development') {
+
+    // RUNNING SERVER ON PORT
+    const PORT = process.env.PORT || 8000;
+    server = app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}...`);
+    });
+
+} else if (process.env.NODE_ENV === 'production') {
+
+    // RUNNING SERVER WITH SSL KEY
+    server = https.createServer(config.keyOption, app).listen(443, () => {
+        console.log("Server is running on port 80/443...");
+    });
+    httpController(express);
+
+}
 
 const io = require('socket.io')(server);
 
