@@ -13,6 +13,9 @@
     "non-unexpected-tests",
     "teachers"
   ],
+  "engines": {
+     "node": "12.17.x"
+  },
   "author": "GGC_",
   "license": "UNLICENSED",
   "dependencies": {
