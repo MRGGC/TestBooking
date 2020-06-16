@@ -18,7 +18,7 @@ config.session.store = new MySQLStore({config: config.mysql});
 const app = express();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-const connection = mysql.createConnection(config.mysql);
+const connection = mysql.createPool(config.mysql);
 connection.query = util.promisify(connection.query).bind(connection);
 
 const testLookupProcedure = fs.readFileSync(__dirname + '/sql/testLookup.sql', 'utf8');

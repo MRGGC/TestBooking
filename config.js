@@ -22,7 +22,10 @@ module.exports = {
         user: process.env.DB_USERNAME,
         password: process.env.DB_PASSWORD,
         host: process.env.DB_HOSTNAME,
-        multipleStatements: true
+        multipleStatements: true,
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0
     },
     session: {
         secret: sha1(randomStr(64)),
